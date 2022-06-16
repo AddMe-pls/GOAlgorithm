@@ -29,7 +29,7 @@ public:
 class THTask : public Task
 {
 public:
-	THTask() { A = -1.57; B = 6.28; };
+	THTask() { A =-1.57; B = 6.28; };
 	double CalculateFunction(double x) override;
 };
 
@@ -37,5 +37,12 @@ class FTTask : public Task
 {
 public:
 	FTTask() { A = -4; B = 4; };
+	double CalculateFunction(double x) override;
+};
+
+class FITask : public Task
+{
+public:
+	FITask() { A = 0; B = 3; };
 	double CalculateFunction(double x) override;
 };

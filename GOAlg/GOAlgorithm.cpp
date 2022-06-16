@@ -6,9 +6,10 @@
 int main()
 {
     Task* pTask = new FTTask();
-    StronginMethod solv(pTask, 0.00001, 1000, 10);
+    StronginMethod solv(pTask, 0.0001, 500, 2);
     solv.Solve();
     Trial OptVal = solv.GetOptVal();
     std::cout <<"Optimal value F = "<< OptVal.y << std::endl;
     std::cout << "Optimal value x = " << OptVal.x << std::endl;
+
 }

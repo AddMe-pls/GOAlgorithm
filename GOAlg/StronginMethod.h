@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "Task.h"
+#include <fstream>
 
 struct Trial {
 	double x, y;
@@ -18,6 +19,7 @@ private:
 	double eps;
 	double r, m;
 	std::size_t itercount;
+	std::ofstream trialsData;
 
 	void FirstIteration();
 	void CalculateNextTrial();

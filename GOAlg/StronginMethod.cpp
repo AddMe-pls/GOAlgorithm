@@ -10,11 +10,16 @@ void StronginMethod::FirstIteration() {
 	pTask->CalculateFunction(pTask->GetA()) < pTask->CalculateFunction(pTask->GetB()) ? BestTrial = fpoint : BestTrial = lpoint;
 	CurrTrial = lpoint;
 	t = 1;
+
+	trialsData.open("test.txt");
+	trialsData << Trials[0].x << std::endl;
+	trialsData << Trials[1].x << std::endl;
 }
 
 void StronginMethod::CalculateNextTrial() {
 	CurrTrial.x = (Trials[t].x + Trials[t-1].x) / 2 - (Trials[t].y - Trials[t-1].y) / (2*m);
 	CurrTrial.y = pTask->CalculateFunction(CurrTrial.x);
+	trialsData << CurrTrial.x << std::endl;
 }
 
 void StronginMethod::CalculateM() {
@@ -53,6 +58,7 @@ void StronginMethod::Solve() {
 		if (CurrTrial.y < BestTrial.y)
 			BestTrial = CurrTrial;
 	}
+	trialsData.close();
 }
 
 Trial StronginMethod::GetOptVal() {
